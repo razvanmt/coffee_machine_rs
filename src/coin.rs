@@ -1,7 +1,8 @@
-// struct Coins {
-//     name: String,
-//     denominator: f64,
-// }
+#[derive(Debug)]
+pub struct Treasury {
+    amount: i32,
+}
+
 #[derive(Debug)]
 pub enum Coin {
     Quarter,

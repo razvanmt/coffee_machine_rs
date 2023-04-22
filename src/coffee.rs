@@ -1,26 +1,21 @@
+use crate::Resource;
+
 #[derive(Debug)]
 pub struct Coffee {
     name: CoffeeName,
-    ingredients: Ingredients,
+    ingredients: [i32; 3],
 }
 
 #[derive(Debug)]
 pub enum CoffeeName {
     Espresso,
     Latte,
-    Cappuccino
+    Cappuccino,
 }
 
 #[derive(Debug)]
-struct Resources {
-    name: String,
-    quantity: i32,
-}
+// struct Ingredients(i32, i32, i32); // (water, milk, coffee)
 
-#[derive(Debug)]
-struct Ingredients(i32, i32, i32);
-
-#[derive(Debug)]
 pub struct InputError;
 
 impl Coffee {
@@ -29,17 +24,17 @@ impl Coffee {
             CoffeeName::Espresso => Some(
                 Coffee {
                 name: CoffeeName::Espresso,
-                ingredients: Ingredients(150, 0, 18),
+                ingredients: [150, 0, 18],
             }),
             CoffeeName::Latte => Some(
                 Coffee {
                 name: CoffeeName::Latte,
-                ingredients: Ingredients(200, 150, 24),
+                ingredients: [200, 150, 24],
             }),
             CoffeeName::Cappuccino => Some(
                 Coffee {
                 name: CoffeeName::Cappuccino,
-                ingredients: Ingredients(250, 100, 24),
+                ingredients: [250, 100, 24],
             })
         }
     }
@@ -52,4 +47,5 @@ impl Coffee {
             _ => Err(InputError)
         }
     }
+
 }
